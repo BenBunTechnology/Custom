@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7B9F3AE0-EF91-4629-8E2D-FA3D1911DF2C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UnNamed</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE79244002312967C9EDAFE623870688A77E610F</key>
+		<string>https://github.com/BenBunTechnology/UnNamed.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UnNamed/UnNamed.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE79244002312967C9EDAFE623870688A77E610F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/BenBunTechnology/UnNamed.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE79244002312967C9EDAFE623870688A77E610F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE79244002312967C9EDAFE623870688A77E610F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UnNamed</string>
+		</dict>
+	</array>
+</dict>
+</plist>

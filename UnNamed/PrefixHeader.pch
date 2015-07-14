@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  UnNamed
+//
+//  Created by T on 15/7/10.
+//  Copyright (c) 2015年 benbun. All rights reserved.
+//
+
+#ifndef UnNamed_PrefixHeader_pch
+#define UnNamed_PrefixHeader_pch
+
+#import "UIView+Extension.h"
+#define BBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+
+#endif
