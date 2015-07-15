@@ -59,9 +59,9 @@
 		1362B7541B560AEC00F9D52F /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B7271B560AEC00F9D52F /* NSObject+MJProperty.m */; };
 		1362B7551B560AEC00F9D52F /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B7291B560AEC00F9D52F /* NSString+MJExtension.m */; };
 		1362B75C1B560D2F00F9D52F /* BBNewsListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B75B1B560D2F00F9D52F /* BBNewsListTVC.m */; };
-		1362B7601B56372900F9D52F /* BBNewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B75F1B56372900F9D52F /* BBNewListModel.m */; };
 		1362B7641B56376600F9D52F /* BBNewListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B7631B56376600F9D52F /* BBNewListCell.m */; };
 		1362B7661B56378A00F9D52F /* BBNewListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1362B7651B56378A00F9D52F /* BBNewListCell.xib */; };
+		1362B7691B5640A700F9D52F /* BBNewListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1362B7681B5640A700F9D52F /* BBNewListModel.m */; };
 		136E61B51B4F86A20047B346 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 136E61B41B4F86A20047B346 /* main.m */; };
 		136E61B81B4F86A20047B346 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 136E61B71B4F86A20047B346 /* AppDelegate.m */; };
 		136E61BB1B4F86A20047B346 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136E61BA1B4F86A20047B346 /* ViewController.m */; };
@@ -190,11 +190,11 @@
 		1362B7291B560AEC00F9D52F /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		1362B75A1B560D2F00F9D52F /* BBNewsListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewsListTVC.h; sourceTree = "<group>"; };
 		1362B75B1B560D2F00F9D52F /* BBNewsListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewsListTVC.m; sourceTree = "<group>"; };
-		1362B75E1B56372900F9D52F /* BBNewListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewListModel.h; sourceTree = "<group>"; };
-		1362B75F1B56372900F9D52F /* BBNewListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewListModel.m; sourceTree = "<group>"; };
 		1362B7621B56376600F9D52F /* BBNewListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewListCell.h; sourceTree = "<group>"; };
 		1362B7631B56376600F9D52F /* BBNewListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewListCell.m; sourceTree = "<group>"; };
 		1362B7651B56378A00F9D52F /* BBNewListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNewListCell.xib; sourceTree = "<group>"; };
+		1362B7671B5640A700F9D52F /* BBNewListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNewListModel.h; sourceTree = "<group>"; };
+		1362B7681B5640A700F9D52F /* BBNewListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNewListModel.m; sourceTree = "<group>"; };
 		136E61AF1B4F86A20047B346 /* MyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		136E61B31B4F86A20047B346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		136E61B41B4F86A20047B346 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -594,8 +594,8 @@
 		1362B75D1B5636FE00F9D52F /* model */ = {
 			isa = PBXGroup;
 			children = (
-				1362B75E1B56372900F9D52F /* BBNewListModel.h */,
-				1362B75F1B56372900F9D52F /* BBNewListModel.m */,
+				1362B7671B5640A700F9D52F /* BBNewListModel.h */,
+				1362B7681B5640A700F9D52F /* BBNewListModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -854,6 +854,7 @@
 				1362B7421B560AEC00F9D52F /* CoreRefreshConst.m in Sources */,
 				136E61DE1B4FA1F70047B346 /* BBGoViewController.swift in Sources */,
 				1362B72B1B560AEC00F9D52F /* CoreArchive.m in Sources */,
+				1362B7691B5640A700F9D52F /* BBNewListModel.m in Sources */,
 				1362B7481B560AEC00F9D52F /* CoreStatus.m in Sources */,
 				136E61BB1B4F86A20047B346 /* ViewController.m in Sources */,
 				1362B7311B560AEC00F9D52F /* NSURL+File.m in Sources */,
@@ -865,7 +866,6 @@
 				1362B7381B560AEC00F9D52F /* LCCell.m in Sources */,
 				1362B6BC1B560AD600F9D52F /* CorePageModel.m in Sources */,
 				1362B72A1B560AEC00F9D52F /* NSString+ArcFile.m in Sources */,
-				1362B7601B56372900F9D52F /* BBNewListModel.m in Sources */,
 				1362B7451B560AEC00F9D52F /* UIScrollView+MJExtension.m in Sources */,
 				13C1C0D51B53C24500E08F50 /* MJRefreshFooterView.m in Sources */,
 				136E61B81B4F86A20047B346 /* AppDelegate.m in Sources */,
