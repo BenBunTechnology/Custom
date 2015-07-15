@@ -5,3 +5,6 @@
 #import "MJRefresh.h"
 #import "ViewController.h"
 #import "MTStatusBarOverlay.h"
+#import "CorePagesView.h"
+#import "BBNewsListTVC.h"
+#import "CorePageModel.h"

@@ -7,25 +7,29 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>7B9F3AE0-EF91-4629-8E2D-FA3D1911DF2C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>UnNamed</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>D341A422EE6B76ED5D436515A17E7722088DEB4B</key>
+		<string>https://github.com/BenBunTechnology/Custom.git</string>
 		<key>DE79244002312967C9EDAFE623870688A77E610F</key>
 		<string>https://github.com/BenBunTechnology/UnNamed.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>UnNamed/UnNamed.xcodeproj</string>
+	<string>UnNamed.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>D341A422EE6B76ED5D436515A17E7722088DEB4B</key>
+		<string>../..</string>
 		<key>DE79244002312967C9EDAFE623870688A77E610F</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/BenBunTechnology/UnNamed.git</string>
+	<string>https://github.com/BenBunTechnology/Custom.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DE79244002312967C9EDAFE623870688A77E610F</string>
+	<string>D341A422EE6B76ED5D436515A17E7722088DEB4B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -33,6 +37,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>DE79244002312967C9EDAFE623870688A77E610F</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D341A422EE6B76ED5D436515A17E7722088DEB4B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>UnNamed</string>
 		</dict>
