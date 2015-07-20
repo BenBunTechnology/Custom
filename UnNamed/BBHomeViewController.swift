@@ -213,4 +213,22 @@ class BBHomeViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.pushViewController(nexVc, animated: true)
     }
     
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var contact = self.data[indexPath.row] as! BBContact
+            contact.deleteToDB()
+            self.data.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            tableView.reloadData()
+        }
+    }
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+        return "删除"
+    }
+    
 }
