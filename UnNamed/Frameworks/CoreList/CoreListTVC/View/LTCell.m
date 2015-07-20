@@ -32,6 +32,7 @@
 +(instancetype)cellPrepare{
 
     LTCell *cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] firstObject];
+    
     return cell;
 }
 

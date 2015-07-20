@@ -11,6 +11,6 @@
 @implementation BBNewListModel
 +(NSArray *)modelPrepare:(id)obj{
     
-    return obj[@"data"];
+    return obj[@"T1351233117091"];
 }
 @end

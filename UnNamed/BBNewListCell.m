@@ -8,11 +8,13 @@
 
 #import "BBNewListCell.h"
 #import "BBNewListModel.h"
+#import "UIImageView+WebCache.h"
 
 @interface BBNewListCell ()
-@property (weak, nonatomic) IBOutlet UILabel *hostIDLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
-@property (weak, nonatomic) IBOutlet UILabel *contentLab;
+@property (weak, nonatomic) IBOutlet UILabel *replyLab;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @end
 
 @implementation BBNewListCell
@@ -20,9 +22,9 @@
 - (void)dataFill{
     //类型强转
     BBNewListModel *model =(BBNewListModel *) self.model;
-    self.hostIDLab.text = [NSString stringWithFormat:@"%@",@(model.hostID)];
     self.titleLab.text = model.title;
-    self.contentLab.text = model.content;
+    self.replyLab.text = [NSString stringWithFormat:@"%tu跟帖", model.replyCount];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:[UIImage imageNamed:@"OPDiscoverPlaceholderImage_left"]];
 }
 
 @end

@@ -12,7 +12,7 @@ class BBMeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.lightGrayColor()    
+        self.view.backgroundColor = UIColor.lightGrayColor()
     }
 
 }

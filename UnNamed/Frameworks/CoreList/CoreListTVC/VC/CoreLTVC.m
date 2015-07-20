@@ -8,6 +8,8 @@
 
 #import "CoreLTVC.h"
 #import "LTCell.h"
+#import "BBNewListModel.h"
+#import "BBWebViewController.h"
 
 
 @interface CoreLTVC ()
@@ -28,6 +30,7 @@
     [super viewDidLoad];
     
     self.tableView.tableFooterView=[[UIView alloc] init];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -135,7 +138,11 @@
  *  选中行
  */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    BBNewListModel *model = self.dataList[indexPath.row];
+    BBWebViewController *webVc = [[BBWebViewController alloc] init];
+    webVc.url = model.url;
+    [self.navigationController pushViewController:webVc animated:YES];
 }
 
 /**

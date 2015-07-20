@@ -27,7 +27,7 @@
 - (void)config{
     LTConfigModel *configModel = [[LTConfigModel alloc] init];
     //url
-    configModel.url=@"http://211.149.151.92/Carpenter/index.php/Info/testdata";
+    configModel.url=@"http://c.3g.163.com/nc/article/list/T1351233117091/0-20.html";
     //请求方式
     configModel.httpMethod=LTConfigModelHTTPMethodGET;
     //模型类
@@ -35,15 +35,15 @@
     //cell类
     configModel.ViewForCellClass=[BBNewListCell class];
     //标识
-    configModel.lid=NSStringFromClass(self.class);
-    //pageName
-    configModel.pageName=@"p";
-    //pageSizeName
-    configModel.pageSizeName=@"pagesize";
+//    configModel.lid=NSStringFromClass(self.class);
+//    //pageName
+//    configModel.pageName=@"p";
+//    //pageSizeName
+//    configModel.pageSizeName=@"pagesize";
     //起始页码
-    configModel.pageStartValue=1;
+//    configModel.pageStartValue=1;
     //行高
-    configModel.rowHeight=60;
+    configModel.rowHeight=80;
     
     //移除返回顶部:(默认开启)
     configModel.removeBackToTopBtn=NO;

@@ -11,14 +11,15 @@ let KSCARE = 0.8
 let TIMEANIMATION = 0.5
 let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
 let SCREEN_HEIGTH = UIScreen.mainScreen().bounds.size.height
-
+let BaseURLString = "http://www.raywenderlich.com/demos/weather_sample/"
+let HASSAVECONTACTTODATABASE = "HASSAVECONTACTTODATABASE"
 class BBHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MTStatusBarOverlayDelegate {
 
     var coverBtn:UIButton!
     var tabView: UITableView?
     
-    lazy var data = [String]()
-    
+    lazy var data = Array<AnyObject>()
+//    lazy var data: [AnyObject] = [AnyObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.grayColor()
@@ -37,23 +38,92 @@ class BBHomeViewController: UIViewController, UITableViewDataSource, UITableView
         self.tabView?.contentInset = UIEdgeInsetsMake(0, 0, 64, 0)
         self.tabView?.tableFooterView = UIView()
         
-        self.tabView?.addHeaderWithCallback({ () -> Void in
-            self.loadNewData()
-        })
-        self.tabView?.headerBeginRefreshing()
         
-        self.tabView?.addFooterWithCallback({ () -> Void in
-            self.loadMoreData()
-        })
         
-        self.tabView?.headerPullToRefreshText = "下拉可以刷新了"
-        self.tabView?.headerReleaseToRefreshText = "松开马上刷新了"
-        self.tabView?.headerRefreshingText = "正在帮你刷新中"
+//        loadWeatherData()
         
-        self.tabView?.footerPullToRefreshText = "上拉可以加载更多数据了"
-        self.tabView?.footerReleaseToRefreshText = "松开马上加载更多数据了"
-        self.tabView?.footerRefreshingText = "正在帮你加载中"
+//        self.tabView?.addHeaderWithCallback({ () -> Void in
+//            self.loadNewData()
+//        })
+//        self.tabView?.headerBeginRefreshing()
+//        
+//        self.tabView?.addFooterWithCallback({ () -> Void in
+//            self.loadMoreData()
+//        })
+//        
+//        self.tabView?.headerPullToRefreshText = "下拉可以刷新了"
+//        self.tabView?.headerReleaseToRefreshText = "松开马上刷新了"
+//        self.tabView?.headerRefreshingText = "正在帮你刷新中"
+//        
+//        self.tabView?.footerPullToRefreshText = "上拉可以加载更多数据了"
+//        self.tabView?.footerReleaseToRefreshText = "松开马上加载更多数据了"
+//        self.tabView?.footerRefreshingText = "正在帮你加载中"
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        var hasSave = userDefault.boolForKey(HASSAVECONTACTTODATABASE)
+        if !hasSave {
+            var contacts = self.addContactData()
+            self.saveContactData(contacts)
+            userDefault.setBool(true, forKey: HASSAVECONTACTTODATABASE)
+            userDefault.synchronize()
+        }
+        var contacts = BBContact.searchWithWhere(nil, orderBy: nil, offset: 0, count: 0)
+        data.removeAll(keepCapacity: true)
+        for contact in contacts{
+            data.append(contact)
+        }
+        self.tabView?.reloadData()
+    }
+    
+    func saveContactData(contacts: Array<AnyObject>){
+        for contact in contacts{
+            contact.saveToDB()
+        }
+    }
+    
+    func addContactData() -> Array<AnyObject>{
+            var contacts = Array<AnyObject>()
+            for var i = 0; i < 10; i++ {
+            let contact = BBContact()
+            contact.displayName = "li" + "\(arc4random_uniform(1000))"
+            contact.nickname = "l" + "\(arc4random_uniform(1000))"
+            var tels = Array<AnyObject>()
+            for var m = 0; m < 2; m++ {                
+                let tel = BBTel()
+                tel.value = "\(arc4random_uniform(183000))"
+                if m == 0 {
+                    tel.pref = true
+                }
+                tels.append(tel)
+            }
+            contact.phoneNumbers = tels
+            contacts.append(contact)
+        }
+        return contacts
+    }
+    
+    func loadWeatherData(){
+//        let string = BaseURLString.stringByAppendingString("weather.php?format=json")
+//        let url = NSURL(string: string)
+//        var request = NSURLRequest(URL: url!)
+//        
+//        let operation = AFHTTPRequestOperation(request: request)
+//        operation.responseSerializer = AFJSONResponseSerializer()
+//        operation.setCompletionBlockWithSuccess({ (operation, responseObject) -> Void in            
+//            println("success")
+//            
+//            }, failure: { (operation, error) -> Void in
+//                println("failure")
+//                let alertView = UIAlertView(title: "Error Weather", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "Cancle")
+//                alertView.show()
+//        })
+//        
+//       operation.start()
+
     }
     
     func loadMoreData(){
@@ -64,7 +134,7 @@ class BBHomeViewController: UIViewController, UITableViewDataSource, UITableView
         let globalQueue = dispatch_get_main_queue()
         dispatch_after(time, globalQueue) { () -> Void in
             self.tabView?.reloadData()
-            self.tabView?.footerEndRefreshing()
+//            self.tabView?.footerEndRefreshing()
         }
         
         var overlay = MTStatusBarOverlay.sharedInstance()
@@ -84,7 +154,7 @@ class BBHomeViewController: UIViewController, UITableViewDataSource, UITableView
         let globalQueue = dispatch_get_main_queue()
         dispatch_after(time, globalQueue) { () -> Void in
             self.tabView?.reloadData()
-            self.tabView?.headerEndRefreshing()
+//            self.tabView?.headerEndRefreshing()
         }
         
         var overlay = MTStatusBarOverlay.sharedInstance()
@@ -126,14 +196,20 @@ class BBHomeViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
          var cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cell")
-         cell.textLabel?.text = self.data[indexPath.row]
+         let contact: AnyObject = data[indexPath.row]
+         cell.textLabel?.text = contact.displayName
+         var dic = NSMutableDictionary()
+         dic["pref"] = true
+         dic["contactId"] = contact.rowid
+         var tel: AnyObject! = BBTel.searchSingleWithWhere(dic, orderBy: nil)
+         cell.detailTextLabel?.text = tel.value
          return cell
     }
         
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         var nexVc = BBNextController()
-        nexVc.title = self.data[indexPath.row]
+        nexVc.contact = data[indexPath.row] as? BBContact
         self.navigationController?.pushViewController(nexVc, animated: true)
     }
     

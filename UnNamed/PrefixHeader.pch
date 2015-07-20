@@ -14,4 +14,8 @@
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 
+#import "FMDB.h"
+#import "LKDBHelper.h"
+#import "BBTel.h"
+
 #endif

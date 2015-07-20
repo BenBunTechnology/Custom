@@ -27,7 +27,7 @@ class BBFriendViewController: UIViewController {
         config.isBarBtnUseCustomWidth = true
         config.barBtnFontPoint = 15
         config.barViewH = 30
-        config.barBtnWidth = 100
+        config.barBtnWidth = 60
         
         return CorePagesView(ownerVC: self, pageModels: pageModels, config: config)
     }()

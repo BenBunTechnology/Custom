@@ -133,8 +133,6 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
     self.scrollView.delegate=self;
 }
 
-
-
 -(void)setConfigModel:(LTConfigModel *)configModel{
     
     _configModel=configModel;
@@ -199,9 +197,11 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
  *  触发顶部刷新
  */
 -(void)triggerTopRefreshAction{
+    
     if(self.canSetupHeaderRefreshControl){
         
         //需要安装顶部刷新控件
+        
         
         //更新周期满了，可以更新
         [self.scrollView headerSetState:CoreHeaderViewRefreshStateNorMal];
@@ -258,7 +258,7 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
 -(void)headerRefreshAction{
     
     if(!_hasData){
-        //添加一个网络指示器
+//        添加一个网络指示器
         [CoreViewNetWorkStausManager show:self.view type:CMTypeLoadingWithImage msg:@"数据加载中" subMsg:@"请稍等，即将努力请求数据哦" offsetY:CoreViewNetWorkStausManagerOffsetY failClickBlock:nil];
     }
     
@@ -311,8 +311,8 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
  */
 -(void)getMethodWithRequestType:(CoreLTVCRequestType)requestType{
     
-    NSString *url=[NSString stringWithFormat:@"%@%@",self.url,@(_page)];
-    
+//    NSString *url=[NSString stringWithFormat:@"%@%@",self.url,@(_page)];
+    NSString *url=[NSString stringWithFormat:@"%@",self.url];
     [CoreHttp getUrl:url params:_configModel.params success:^(id obj) {
         [self success:obj requestType:requestType];
     } errorBlock:^(CoreHttpErrorType errorType) {
@@ -343,6 +343,8 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
  *  底部刷新：可能有数据，可能没有数据
  */
 -(void)success:(id)obj requestType:(CoreLTVCRequestType)requestType{
+    
+    NSLog(@"%@----", obj);
     
     //数据需要经过模型处理
     NSArray *dictsArray=[_configModel.ModelClass modelPrepare:obj];
@@ -579,11 +581,12 @@ const CGFloat CoreViewNetWorkStausManagerOffsetY=0;
         //配置url
         NSString *urlStr=_configModel.url;
         
-        NSRange range = [urlStr rangeOfString:@"?"];
-        
-        NSString *flag=(range.length==0)?@"?":@"&";
-        
-        _url=[NSString stringWithFormat:@"%@%@%@=%@&%@=",urlStr,flag,_configModel.pageSizeName,@(_configModel.pageSize),_configModel.pageName];
+//        NSRange range = [urlStr rangeOfString:@"?"];
+//        
+//        NSString *flag=(range.length==0)?@"?":@"&";
+//        
+//        _url=[NSString stringWithFormat:@"%@%@%@=%@&%@=",urlStr,flag,_configModel.pageSizeName,@(_configModel.pageSize),_configModel.pageName];
+        _url = urlStr;
     }
     
     return _url;

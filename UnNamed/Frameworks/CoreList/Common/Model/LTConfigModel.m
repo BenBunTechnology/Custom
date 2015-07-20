@@ -38,17 +38,17 @@
     //更新周期
     self.cycle=5 * 60.0f;
     
-    //pagesize
-    self.pageSize=10;
-    
-    //pageSizeName
-    self.pageSizeName=@"pagesize";
-    
-    //pageName
-    self.pageName=@"page";
-    
-    //pageStartValue
-    self.pageStartValue=1;
+//    //pagesize
+//    self.pageSize=10;
+//    
+//    //pageSizeName
+//    self.pageSizeName=@"pagesize";
+//    
+//    //pageName
+//    self.pageName=@"page";
+//    
+//    //pageStartValue
+//    self.pageStartValue=1;
     
     //cellHeight
     self.rowHeight=44.0f;
